@@ -7,22 +7,22 @@ import java.io.Serializable;
  */
 public class Hello implements Serializable {
 
-    private String helloId;
-    private String helloName;
+    private String hello;
+    private String world;
 
-    public String getHelloId() {
-        return helloId;
+    public String getHello() {
+        return hello;
     }
 
-    public void setHelloId(String helloId) {
-        this.helloId = helloId;
+    public void setHello(String hello) {
+        this.hello = hello;
     }
 
-    public String getHelloName() {
-        return helloName;
+    public String getWorld() {
+        return world;
     }
 
-    public void setHelloName(String helloName) {
-        this.helloName = helloName;
+    public void setWorld(String world) {
+        this.world = world;
     }
 }
