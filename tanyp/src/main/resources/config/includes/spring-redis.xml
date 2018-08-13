@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <!-- 最大连接数 -->
+        <property name="maxTotal" value="200"></property>
+        <!-- 最大空闲数，空闲连接大于这个数会进行回收 -->
+        <property name="maxIdle" value="50"></property>
+        <!-- 最小空闲数，空闲连接小于这个数会建立新的连接 -->
+        <property name="minIdle" value="10"></property>
+        <!-- 当连接池资源耗尽时，调用者最大阻塞的时间，超时将抛出异常。单位，毫秒数;默认为-1.表示永不超时. 默认值 -1 -->
+        <property name="maxWaitMillis" value="15000"></property>
+        <!-- 连接池放池化对象方式（true：放在空闲队列最前面，false：放在空闲队列最后面）-->
+        <property name="lifo" value="true"></property>
+        <!-- 连接耗尽时是否阻塞, false报异常,true 阻塞直到超时, 默认true -->
+        <property name="blockWhenExhausted" value="true"></property>
+        <property name="testOnBorrow" value="false"></property>
+        <property name="testOnReturn" value="false"></property>
+        <property name="testWhileIdle" value="false"></property>
+        <property name="timeBetweenEvictionRunsMillis" value="30000"></property>
+    </bean>
+
+    <bean class="me.tanyp.util.RedisManager">
+        <!-- 服务器地址 -->
+        <property name="host" value="${profile.redis.server.host}"></property>
+        <!-- 端口 -->
+        <property name="port" value="${profile.redis.server.port}"></property>
+        <!-- 密码 -->
+        <property name="password" value="${profile.redis.server.password}"></property>
+        <property name="jedisPoolConfig" ref="jedisPoolConfig"></property>
+    </bean>
+
+</beans>
