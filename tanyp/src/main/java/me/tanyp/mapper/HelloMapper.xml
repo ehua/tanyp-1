@@ -5,4 +5,15 @@
 
 <mapper namespace="me.tanyp.dao.HelloMapper">
 
+    <insert id="create" parameterType="me.tanyp.entity.Hello">
+        INSERT INTO t_hello
+            (id_,created_,createdMillisecond_)
+        VALUES
+            (#{id},#{created},#{createdMillisecond})
+    </insert>
+
+    <select id="list" parameterType="" resultMap="">
+        SELECT * FROM t_hello
+    </select>
+
 </mapper>
