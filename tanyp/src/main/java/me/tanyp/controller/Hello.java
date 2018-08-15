@@ -10,9 +10,6 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class Hello<E> {
 
-
-    static int a = 0;
-
     private final Lock lock = new ReentrantLock();
     private final List<E> list = new ArrayList<>();
     private static int i = 0;
