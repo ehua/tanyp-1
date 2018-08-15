@@ -30,23 +30,17 @@ public class HelloController {
         System.out.println(redisManager.get(String.class, "tanyp"));
         redisManager.delete("tanyp");
         System.out.println(redisManager);
-
         //默认非公平锁
         ReentrantLock reentrantLock = new ReentrantLock();
-
+        //公平锁
         ReentrantLock reentrantLock1 = new ReentrantLock(true);
-
-
     }
 
     @GetMapping("/world")
     public void world() {
         System.out.println("world");
     }
-
-
 //    public static void main(String[] args) {
-//
 //        if (reentrantLock.tryLock()){
 //            reentrantLock.lock();
 //            try {
