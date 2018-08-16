@@ -12,7 +12,7 @@ public class LoginRecord extends BaseEntity {
     private String loginIP;
     private String userId;
     public void init(){
-
+        super.init();
     }
     public String getLoginIP() {
         return loginIP;

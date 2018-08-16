@@ -29,10 +29,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User login(LoginParam login) {
-        if (StringUtils.isEmpty(login.getName()) || StringUtils.isEmpty(login.getPwd())) {
+        if (StringUtils.isEmpty(login.getEmail()) || StringUtils.isEmpty(login.getPwd())) {
             throw new SystemException("请输入完整登录信息");
         } else {
-            User user = userMapper.get(login.getName());
+            User user = userMapper.getEmail(login.getEmail());
             if (user == null) {
                 throw new SystemException("用户名或密码错误");
             } else {

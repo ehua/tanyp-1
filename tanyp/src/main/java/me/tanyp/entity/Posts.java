@@ -13,6 +13,10 @@ public class Posts extends BaseEntity {
     private String belongId;
     private List<Praise> praises;
 
+    public void init(){
+        super.init();
+    }
+
     public String getContent() {
         return content;
     }

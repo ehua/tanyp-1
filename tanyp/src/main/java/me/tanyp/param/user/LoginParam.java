@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 public class LoginParam implements Serializable {
 
-    private String name;
+    private String email;
     private String pwd;
 
     public String getPwd() {
@@ -18,11 +18,11 @@ public class LoginParam implements Serializable {
         this.pwd = pwd;
     }
 
-    public String getName() {
-        return name;
+    public String getEmail() {
+        return email;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

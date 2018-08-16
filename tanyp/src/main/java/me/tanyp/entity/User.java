@@ -2,6 +2,8 @@ package me.tanyp.entity;
 
 import me.tanyp.entity.base.BaseEntity;
 
+import java.util.Date;
+
 /**
  * Created by tanyp on 2018/8/16
  * 用户
@@ -14,17 +16,21 @@ public class User extends BaseEntity {
     private String salt;
     //手机号
     private String mobile;
+    private String sex;
+    private Date birthday;
     //邮箱
     private String email;
     //简介
     private String profile;
     //违规次数
-    private Integer illegal;
+    private Integer illegal = 0;
     //用户状态 1：正常 2：休眠 3：封号
-    private Integer status;
+    private Integer status = 1;
+    //头像
+    private String headPortrait;
 
     public void init(){
-
+        super.init();
     }
 
     public String getName() {
@@ -89,5 +95,29 @@ public class User extends BaseEntity {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getHeadPortrait() {
+        return headPortrait;
+    }
+
+    public void setHeadPortrait(String headPortrait) {
+        this.headPortrait = headPortrait;
     }
 }

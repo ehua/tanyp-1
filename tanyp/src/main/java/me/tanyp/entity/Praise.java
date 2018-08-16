@@ -10,6 +10,10 @@ public class Praise extends BaseEntity {
     private String postsId;
     private String belongId;
 
+    public void init(){
+        super.init();
+    }
+
     public String getBelongId() {
         return belongId;
     }

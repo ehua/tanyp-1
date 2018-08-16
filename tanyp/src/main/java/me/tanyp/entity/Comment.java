@@ -13,6 +13,10 @@ public class Comment extends BaseEntity {
     private String content;
     private List<Praise> praises;
 
+    public void init(){
+        super.init();
+    }
+
     public String getContent() {
         return content;
     }
