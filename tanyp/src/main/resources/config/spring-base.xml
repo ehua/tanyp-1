@@ -11,6 +11,8 @@
     <import resource="includes/spring-ds.xml"/>
     <import resource="includes/spring-tx.xml"/>
     <import resource="includes/spring-mybatis.xml"/>
+    <import resource="includes/spring-thread.xml"/>
     <bean class="me.tanyp.util.SpringServiceFactory"/>
-    <context:component-scan base-package="me.tanyp" resource-pattern="**/*.*class" />
+    <bean class="me.tanyp.util.MailConfig"/>
+    <context:component-scan base-package="me.tanyp" resource-pattern="**/*.*class"/>
 </beans>

@@ -1,4 +1,4 @@
-package me.tanyp.util;
+package me.tanyp.util.basic;
 
 
 public class MessageUtil {

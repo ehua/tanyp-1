@@ -22,8 +22,11 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
     @Autowired
     private RedisManager redisManager;
+
+
 
     @RequestMapping("/login")
     @PostMapping

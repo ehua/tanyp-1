@@ -1,7 +1,7 @@
 /***********************************************************************
  * 深圳市云游天下科技有限公司 版权所有
  ***********************************************************************/
-package me.tanyp.util;
+package me.tanyp.util.basic;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

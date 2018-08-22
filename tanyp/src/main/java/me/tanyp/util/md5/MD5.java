@@ -1,4 +1,4 @@
-package me.tanyp.util;
+package me.tanyp.util.md5;
 
 import sun.misc.BASE64Encoder;
 

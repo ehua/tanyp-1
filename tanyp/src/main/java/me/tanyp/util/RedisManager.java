@@ -1,5 +1,6 @@
 package me.tanyp.util;
 
+import me.tanyp.util.basic.KryoSerializer;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
@@ -112,6 +113,19 @@ public class RedisManager {
                 doSetInternal(jedis, key, keyBytes, value);
             }
         } finally {
+            closeResource();
+        }
+    }
+
+    public void expire(String key, int timeout){
+        try {
+            Jedis jedis = get().getResource();
+            if (timeout <= 0) {
+                jedis.persist(key);
+            } else {
+                jedis.expire(key, timeout);
+            }
+        }finally{
             closeResource();
         }
     }

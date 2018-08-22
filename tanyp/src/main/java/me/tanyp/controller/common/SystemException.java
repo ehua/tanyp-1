@@ -1,7 +1,7 @@
 package me.tanyp.controller.common;
 
-import me.tanyp.util.MessageUtil;
-import me.tanyp.util.StringUtils;
+import me.tanyp.util.basic.MessageUtil;
+import me.tanyp.util.basic.StringUtils;
 
 public class SystemException extends RuntimeException {
 

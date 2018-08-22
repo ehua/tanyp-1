@@ -36,11 +36,7 @@
     </insert>
 
     <select id="getEmail" parameterType="java.lang.String" resultMap="User">
-        SELECT
-          i
-        FROM
-          i_user i
-        WHERE email_ = #{value}
+        SELECT i.* FROM i_user i WHERE email_ = #{value}
     </select>
 
 

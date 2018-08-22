@@ -1,4 +1,7 @@
-package me.tanyp.util;
+package me.tanyp.util.md5;
+
+import me.tanyp.util.basic.StringUtils;
+import me.tanyp.util.basic.UUIDGenerator;
 
 public class MD5Util {
 

@@ -1,6 +1,6 @@
 package me.tanyp.entity.base;
 
-import me.tanyp.util.IdWorker;
+import me.tanyp.util.basic.IdWorker;
 
 import java.io.Serializable;
 import java.util.Date;

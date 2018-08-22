@@ -3,6 +3,8 @@ package me.tanyp.util;
 import me.tanyp.controller.common.SystemException;
 import me.tanyp.controller.common.UserException;
 import me.tanyp.entity.User;
+import me.tanyp.util.basic.KryoSerializer;
+import me.tanyp.util.basic.StringUtils;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
@@ -92,7 +94,7 @@ public class UserManager {
                 }
             }
             jedis.hset(userKey,SESSION_FIELD_KEY,sessionHolder.get());
-            jedis.hset(userKey.getBytes(),USER_FIELD_KEY.getBytes(),KryoSerializer.serialize(user));
+            jedis.hset(userKey.getBytes(),USER_FIELD_KEY.getBytes(), KryoSerializer.serialize(user));
             jedis.expire(userKey,expireTime);
             mappingSessionAndUser(jedis,sessionHolder.get(),userKey);
         }catch (UserException e) {

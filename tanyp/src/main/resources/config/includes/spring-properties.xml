@@ -7,6 +7,8 @@
             <list>
                 <value>classpath:config/jdbc.properties</value>
                 <value>classpath:log4j.properties</value>
+                <value>classpath:config/multi_media.properties</value>
+                <value>classpath:config/mail.properties</value>
             </list>
         </property>
     </bean>

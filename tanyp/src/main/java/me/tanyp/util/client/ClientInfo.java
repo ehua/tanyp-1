@@ -1,4 +1,6 @@
-package me.tanyp.util;
+package me.tanyp.util.client;
+
+import me.tanyp.util.basic.StringUtils;
 
 import java.io.Serializable;
 import java.util.Locale;
@@ -17,8 +19,6 @@ public class ClientInfo implements Serializable {
 	private int port;
 	private String browser;
 	private Locale locale;
-	
-	
 	/**
 	 * @return the protocol
 	 */

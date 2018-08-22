@@ -1,8 +1,8 @@
 package me.tanyp.interceptor;
 
-import me.tanyp.util.ClientInfo;
-import me.tanyp.util.ClientInfoHolder;
-import me.tanyp.util.StringUtils;
+import me.tanyp.util.client.ClientInfo;
+import me.tanyp.util.client.ClientInfoHolder;
+import me.tanyp.util.basic.StringUtils;
 import me.tanyp.util.UserManager;
 import nl.bitwalker.useragentutils.UserAgent;
 import org.springframework.beans.factory.annotation.Autowired;
