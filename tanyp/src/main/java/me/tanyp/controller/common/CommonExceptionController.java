@@ -15,7 +15,16 @@ public class CommonExceptionController {
     @ResponseBody
     public JSONResultModel<Object> error(Exception e){
         JSONResultModel<Object> resultModel = new JSONResultModel<>();
+        resultModel.setRet(false);
         resultModel.setData(e);
+        return resultModel;
+    }
+    @ExceptionHandler(SystemException.class)
+    @ResponseBody
+    public JSONResultModel system(SystemException e){
+        JSONResultModel<Object> resultModel = new JSONResultModel<>();
+        resultModel.setRet(false);
+        resultModel.setMsg(e.getMessage());
         return resultModel;
     }
 }

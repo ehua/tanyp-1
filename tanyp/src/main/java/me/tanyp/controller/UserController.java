@@ -7,16 +7,12 @@ import me.tanyp.param.user.RegisterParam;
 import me.tanyp.service.local.UserService;
 import me.tanyp.util.RedisManager;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by tanyp on 2018/8/16
  */
-@Controller
+@RestController
 @RequestMapping("/u")
 public class UserController {
 
@@ -28,8 +24,7 @@ public class UserController {
 
 
 
-    @RequestMapping("/login")
-    @PostMapping
+    @PostMapping("/login")
     public JSONResultModel<Object> login(@RequestBody LoginParam login){
         JSONResultModel<Object> resultModel = new JSONResultModel<>();
         User user = userService.login(login);
@@ -37,8 +32,7 @@ public class UserController {
         return resultModel;
     }
 
-    @RequestMapping("/register")
-    @PostMapping
+    @PostMapping("/register")
     public JSONResultModel<Object> register(@RequestBody RegisterParam register){
         JSONResultModel<Object> resultModel = new JSONResultModel<>();
         User user = userService.register(register);

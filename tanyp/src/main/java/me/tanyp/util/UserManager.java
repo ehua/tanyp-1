@@ -125,7 +125,7 @@ public class UserManager {
             e.printStackTrace();
         }finally {
             if (jedis != null)
-            jedis.close();
+                jedis.close();
         }
     }
 
@@ -175,7 +175,7 @@ public class UserManager {
             e.printStackTrace();
         }finally {
             if (jedis != null)
-            jedis.close();
+                jedis.close();
         }
     }
 
@@ -198,7 +198,7 @@ public class UserManager {
             throw e;
         }finally {
             if (jedis != null)
-            jedis.close();
+                jedis.close();
         }
         return user;
     }
@@ -223,7 +223,7 @@ public class UserManager {
             throw e;
         }finally {
             if (jedis != null)
-            jedis.close();
+                jedis.close();
         }
 
         return userKey;

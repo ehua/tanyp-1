@@ -8,7 +8,7 @@ public class JSONResultModel<T> implements Serializable {
 	private int ver;
 	private boolean ret = true;
 	private String msg;
-	private String errcode;
+	private String code;
 	private int total;
 	private T data;
 	public int getVer() {
@@ -29,12 +29,15 @@ public class JSONResultModel<T> implements Serializable {
 	public void setMsg(String msg) {
 		this.msg = msg;
 	}
-	public String getErrcode() {
-		return errcode;
+
+	public String getCode() {
+		return code;
 	}
-	public void setErrcode(String errcode) {
-		this.errcode = errcode;
+
+	public void setCode(String code) {
+		this.code = code;
 	}
+
 	public int getTotal() {
 		return total;
 	}

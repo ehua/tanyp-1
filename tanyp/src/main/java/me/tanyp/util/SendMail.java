@@ -8,6 +8,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeUtility;
 import java.util.Properties;
 import java.util.regex.Pattern;
 
@@ -18,6 +19,7 @@ public class SendMail {
 
     public static final String REGEX_EMAIL = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";
     private Logger logger = Logger.getLogger(SendMail.class);
+
     public void sendMail(String email) {
         if (StringUtils.isNotEmpty(email) && Pattern.matches(REGEX_EMAIL, email)) {
             try {
@@ -34,15 +36,15 @@ public class SendMail {
                 };
                 Session session = Session.getInstance(properties, authenticator);
                 Message message = new MimeMessage(session);
-                message.setFrom(new InternetAddress(mail.getName()));
+                message.setFrom(new InternetAddress(MimeUtility.encodeText("YhACG") + "<" + mail.getName() + ">"));
                 message.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
-                message.setSubject(mail.getSubject());
+                message.setSubject(MimeUtility.encodeText("验证码"));
                 addSendMailTask(message, email, Integer.parseInt(mail.getTimeout()));
             } catch (Exception e) {
-                throw new SystemException("邮件发送异常",e);
+                throw new SystemException("邮件发送异常", e);
             }
         } else {
-            throw new SystemException("邮箱不正确");
+            throw new SystemException("邮箱不正确{" + email + "}");
         }
     }
 

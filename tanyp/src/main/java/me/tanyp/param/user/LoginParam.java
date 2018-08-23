@@ -9,6 +9,7 @@ public class LoginParam implements Serializable {
 
     private String email;
     private String pwd;
+    private String checkCode;
 
     public String getPwd() {
         return pwd;
@@ -24,5 +25,13 @@ public class LoginParam implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getCheckCode() {
+        return checkCode;
+    }
+
+    public void setCheckCode(String checkCode) {
+        this.checkCode = checkCode;
     }
 }

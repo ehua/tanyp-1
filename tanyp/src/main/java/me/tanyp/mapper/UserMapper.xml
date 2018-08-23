@@ -14,7 +14,7 @@
         <result column="sex_" property="sex"/>
         <result column="birthday_" property="birthday"/>
         <result column="profile_" property="profile"/>
-        <result column="head_portrait" property="headPortrait"/>
+        <result column="headPortrait_" property="headPortrait"/>
         <result column="salt_" property="salt"/>
         <result column="pwd_" property="pwd"/>
         <result column="status_" property="status"/>
@@ -23,7 +23,7 @@
 
     <insert id="create" parameterType="me.tanyp.entity.User">
         INSERT INTO i_user
-            (id_,created_,createdMillisecond_,name_,pwd_,salt_,mobile_,sex_,birthday_,email_,profile_,illegal_,status_,head_portrait)
+            (id_,created_,createdMillisecond_,name_,pwd_,salt_,mobile_,sex_,birthday_,email_,profile_,illegal_,status_,headPortrait_)
         VALUES
             (#{id},#{created},#{createdMillisecond},#{name},#{pwd},#{salt},#{mobile},#{sex},#{birthday},#{email},#{profile},#{illegal},#{status},#{headPortrait})
     </insert>

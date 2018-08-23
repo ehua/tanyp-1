@@ -7,18 +7,9 @@ import java.io.Serializable;
  */
 public class RegisterParam implements Serializable {
 
-    private String name;
     private String email;
     private String pwd;
     private String code;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getEmail() {
         return email;
