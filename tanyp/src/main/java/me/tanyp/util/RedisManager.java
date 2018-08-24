@@ -14,7 +14,6 @@ import java.util.Arrays;
  * Created by tanyp on 2018/8/13
  */
 public class RedisManager {
-    //内存可见性
     private static volatile RedisManager manager = null;
     private final static byte[] NULL_VALUE = "null".getBytes();
     private ThreadLocal<Jedis> jedisThreadLocal = new ThreadLocal<>();
