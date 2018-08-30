@@ -54,7 +54,7 @@ public class SendMail {
                     .getService(ThreadPoolTaskExecutor.class);
             int code = (int) ((Math.random() * 9 + 1) * 10000);
             message.setContent(String.valueOf(code), "text/html;charset=utf-8");
-            RedisManager redisManager = SpringServiceFactory.get()
+            final RedisManager redisManager = SpringServiceFactory.get()
                     .getService(RedisManager.class);
             taskExecutor.execute(new Runnable() {
                 @Override
