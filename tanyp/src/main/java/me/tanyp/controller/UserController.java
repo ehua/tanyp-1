@@ -5,6 +5,7 @@ import me.tanyp.json.JSONResultModel;
 import me.tanyp.param.user.LoginParam;
 import me.tanyp.param.user.RegisterParam;
 import me.tanyp.service.local.UserService;
+import me.tanyp.util.UserManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,10 +19,15 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private UserManager userManager;
+
     @PostMapping("/login")
-    public JSONResultModel<Object> login(@RequestBody LoginParam login){
+    public JSONResultModel<Object> login(@RequestBody LoginParam login) throws Exception {
         JSONResultModel<Object> resultModel = new JSONResultModel<>();
         User user = userService.login(login);
+        userManager.saveUser(user,true);
+        resultModel.setData(user);
         return resultModel;
     }
 
@@ -36,7 +42,7 @@ public class UserController {
     @ResponseBody
     public JSONResultModel<Object> logout(){
         JSONResultModel<Object> resultModel = new JSONResultModel<>();
-//        userManager.logout();
+        userManager.logout();
         return resultModel;
     }
 

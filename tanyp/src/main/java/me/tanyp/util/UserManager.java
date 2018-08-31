@@ -70,7 +70,7 @@ public class UserManager {
         return get().pool;
     }
 
-    public void saveUser(User user, boolean isAgainLogin) throws Exception{
+    public void saveUser(User user, boolean isAgainLogin) throws UserException{
         Jedis jedis = null;
         try {
             jedis = getPool().getResource();

@@ -7,8 +7,8 @@
                            http://code.alibabatech.com/schema/dubbo
                            http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
     <!-- 声明需要接收的服务接口 -->
-    <dubbo:reference
-            id="helloService"
-            interface="me.tanyp.service.remote.HelloService">
-    </dubbo:reference>
+    <!--<dubbo:reference-->
+            <!--id="helloService"-->
+            <!--interface="me.tanyp.service.remote.HelloService">-->
+    <!--</dubbo:reference>-->
 </beans>

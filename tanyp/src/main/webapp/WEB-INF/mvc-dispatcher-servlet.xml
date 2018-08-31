@@ -43,16 +43,16 @@
     </bean>
 
     <!-- 拦截器 -->
-    <!--<mvc:interceptors>-->
-    <!--<mvc:interceptor>-->
-    <!--&lt;!&ndash; 拦截器路径配置 &ndash;&gt;-->
-    <!--<mvc:mapping path="/**"/>-->
-    <!--&lt;!&ndash; 拦截器不需要拦截的路径 &ndash;&gt;-->
-    <!--<mvc:exclude-mapping path="/u/login"/>-->
-    <!--<mvc:exclude-mapping path="/u/register"/>-->
-    <!--<bean class="me.tanyp.interceptor.GlobalHandleInterceptor"/>-->
-    <!--</mvc:interceptor>-->
-    <!--</mvc:interceptors>-->
+
+    <mvc:interceptors>
+        <bean class="me.tanyp.interceptor.GlobalHandleInterceptor"/>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/u/login"/>
+            <mvc:exclude-mapping path="/u/register"/>
+            <bean class="me.tanyp.interceptor.AuthValidateHandleInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>
 
     <!-- 通用异常事件处理类，只包含了Exception的处理 -->
     <bean class="me.tanyp.controller.common.CommonExceptionController"></bean>

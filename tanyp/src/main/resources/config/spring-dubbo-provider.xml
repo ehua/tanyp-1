@@ -6,6 +6,6 @@
                            http://code.alibabatech.com/schema/dubbo
                            http://code.alibabatech.com/schema/dubbo/dubbo.xsd ">
     <!-- 声明需要暴露的服务接口 -->
-    <dubbo:service interface="me.tanyp.service.remote.HelloService" ref="helloService"/>
-    <bean id="helloService" class="me.tanyp.service.remote.impl.HelloServiceImpl"/>
+    <!--<dubbo:service interface="me.tanyp.service.remote.HelloService" ref="helloService"/>-->
+    <!--<bean id="helloService" class="me.tanyp.service.remote.impl.HelloServiceImpl"/>-->
 </beans>

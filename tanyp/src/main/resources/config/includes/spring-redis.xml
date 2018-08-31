@@ -33,4 +33,11 @@
         <property name="jedisPoolConfig" ref="jedisPoolConfig"></property>
     </bean>
 
+
+    <bean class="me.tanyp.util.UserManager">
+        <property name="redisHost" value="${profile.redis.server.host}"/>
+        <property name="redisPassword" value="${profile.redis.server.password}"/>
+        <property name="redisPort" value="${profile.redis.server.port}"/>
+    </bean>
+
 </beans>

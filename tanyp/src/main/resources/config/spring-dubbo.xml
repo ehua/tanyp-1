@@ -6,10 +6,10 @@
                            http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://code.alibabatech.com/schema/dubbo
                            http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
-    <!-- 当前应用信息配置 -->
-    <dubbo:application name="tanyp"/>
-    <!-- 使用zookeeper注册中心暴露服务地址 -->
-    <dubbo:registry address="${profile.dubbo.registry.address}" file=".dubbo/tanyp.cache"/>
-    <!-- 用dubbo协议在端口暴露服务 -1 随机 -->
-    <dubbo:protocol name="dubbo" port="-1"/>
+    <!--&lt;!&ndash; 当前应用信息配置 &ndash;&gt;-->
+    <!--<dubbo:application name="tanyp"/>-->
+    <!--&lt;!&ndash; 使用zookeeper注册中心暴露服务地址 &ndash;&gt;-->
+    <!--<dubbo:registry address="${profile.dubbo.registry.address}" file=".dubbo/tanyp1.cache"/>-->
+    <!--&lt;!&ndash; 用dubbo协议在端口暴露服务 -1 随机 &ndash;&gt;-->
+    <!--<dubbo:protocol name="dubbo" port="-1"/>-->
 </beans>
