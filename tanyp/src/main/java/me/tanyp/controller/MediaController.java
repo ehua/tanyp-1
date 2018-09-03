@@ -2,9 +2,12 @@ package me.tanyp.controller;
 
 import me.tanyp.controller.common.SystemException;
 import me.tanyp.json.JSONResultModel;
+import me.tanyp.util.basic.Utils;
 import me.tanyp.util.file.FileType;
 import me.tanyp.util.file.UploadConst;
-import me.tanyp.util.basic.Utils;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.task.TaskExecutor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,6 +28,10 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/media")
 public class MediaController {
+
+    private Logger logger = Logger.getLogger("mediaLog");
+    @Autowired
+    private TaskExecutor taskExecutor;
 
     @PostMapping("/upload")
     public JSONResultModel<Object> multiple(@RequestParam("file") MultipartFile[] files) {
@@ -56,7 +63,16 @@ public class MediaController {
         }
         String path = topFolderNoSuffix + pathInfo.relativePath + storeFileName + '.' + realType;
         String diskSavePath = pathInfo.getFullPath() + storeFileName + '.' + realType;
-        file.transferTo(new File(diskSavePath));
+        taskExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    file.transferTo(new File(diskSavePath));
+                } catch (Exception e) {
+                    logger.error("upload error", e);
+                }
+            }
+        });
         return path;
     }
 }

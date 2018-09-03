@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="me.tanyp.dao.PostsMapper">
+    <resultMap id="Posts" type="me.tanyp.entity.Posts">
+        <id column="id_" property="id"/>
+        <result column="created_" property="created"/>
+        <result column="createdMillisecond_" property="createdMillisecond"/>
+
+        <collection property="comments" javaType="java.util.ArrayList" ofType="me.tanyp.entity.Comment">
+            <id column="cmt_id" property="id"/>
+            <result column="cmt_created" property="created"/>
+            <result column="cmt_createdMillisecond" property="createdMillisecond"/>
+            <result column="cmt_comment" property="comment"/>
+            <result column="cmt_parent_id" property="parentId"/>
+            <result column="cmt_posts_id" property="postsId"/>
+        </collection>
+
+        <collection property="likes" javaType="java.util.ArrayList" ofType="me.tanyp.entity.Like">
+            <id column="like_id" property="id"/>
+            <result column="like_created" property="created"/>
+            <result column="like_createdMillisecond" property="createdMillisecond"/>
+            <result column="like_comment_id" property="commentId"/>
+            <result column="like_status" property="status"/>
+            <result column="like_posts_id" property="postsId"/>
+        </collection>
+
+        <collection property="medias" ofType="java.lang.String" >
+            <result column="medias"/>
+        </collection>
+
+    </resultMap>
+
+    <insert id="create" parameterType="me.tanyp.entity.User">
+        INSERT INTO i_user
+            (id_,created_,createdMillisecond_)
+        VALUES
+            (#{id},#{created},#{createdMillisecond})
+    </insert>
+
+</mapper>

@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserService {
                     loginRecord.setLoginIP(ClientInfoHolder.get().getIp());
                     loginRecord.setBrowser(ClientInfoHolder.get().getBrowser());
                     userMapper.saveLoginRecord(loginRecord);
-                    logger.info("login success" + user.getId()+"，date"+ DateUtils.formatDateString(new Date(),"yyyy-MM-dd HH:mm:ss"));
+                    logger.info("login success：" + user.getId()+"，date："+ DateUtils.formatDateString(new Date(),"yyyy-MM-dd HH:mm:ss"));
                     return user;
                 }
             }

@@ -10,19 +10,20 @@ import java.util.List;
 public class Comment extends BaseEntity {
 
     private String parentId;
-    private String content;
-    private List<Praise> praises;
+    private String comment;
+    private List<Like> likes;
+    private String postsId;
 
     public void init(){
         super.init();
     }
 
-    public String getContent() {
-        return content;
+    public String getComment() {
+        return comment;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
     public String getParentId() {
@@ -33,11 +34,19 @@ public class Comment extends BaseEntity {
         this.parentId = parentId;
     }
 
-    public List<Praise> getPraises() {
-        return praises;
+    public List<Like> getLikes() {
+        return likes;
     }
 
-    public void setPraises(List<Praise> praises) {
-        this.praises = praises;
+    public void setLikes(List<Like> likes) {
+        this.likes = likes;
+    }
+
+    public String getPostsId() {
+        return postsId;
+    }
+
+    public void setPostsId(String postsId) {
+        this.postsId = postsId;
     }
 }
