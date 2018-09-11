@@ -2,6 +2,7 @@ package me.tanyp.util.md5;
 
 import sun.misc.BASE64Encoder;
 
+import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -10,11 +11,13 @@ public class MD5 {
 	public static String encryptPassword(String pwd){
 		try {
 			MessageDigest alga = MessageDigest.getInstance("MD5");
-			alga.update(pwd.getBytes());
-			byte[] digesta = alga.digest();
-			return byte2hex(digesta);
+			alga.update(pwd.getBytes("UTF-8"));
+			byte[] digest = alga.digest();
+			return byte2hex(digest);
 		} catch (NoSuchAlgorithmException ex) {
 			ex.printStackTrace();
+		} catch (UnsupportedEncodingException e){
+			e.printStackTrace();
 		}
 		return "";
 	}
